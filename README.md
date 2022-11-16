@@ -1,14 +1,10 @@
 # vue-where-in-the-world
 
-This template should help get you started developing with Vue 3 in Vite.
+This is a simple demo of REST COUNTRIES API using Vue.js 3 and Tailwind CSS.
 
-## Recommended IDE Setup
+## Live Demo
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+You can see the live demo at (render)[https://vue-where-in-the-world.onrender.com/]
 
 ## Project Setup
 
