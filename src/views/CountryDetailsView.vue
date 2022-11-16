@@ -48,7 +48,7 @@
         <h3 class="font-semibold text-lg pb-4">Border Countries:</h3>
         <div class="flex flex-wrap gap-5 text-sm">
           <div
-            class="w-32 text-center py-2 shadow-lg bg-white dark:bg-dark-blue text-very-very-dark-blue dark:text-white rounded-sm cursor-pointer"
+            class="flex justify-center items-center px-2 w-32 text-center py-2 shadow-lg bg-white dark:bg-dark-blue text-very-very-dark-blue dark:text-white rounded-sm cursor-pointer"
             v-for="borderCountry in borderCountries"
             :key="borderCountry"
             @click="changeCountry(borderCountry)"
