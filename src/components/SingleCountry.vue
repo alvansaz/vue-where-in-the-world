@@ -1,12 +1,14 @@
 <template>
-  <div class="flex flex-col bg-white dark:bg-dark-blue shadow-lg rounded-md overflow-hidden text-very-dark-blue dark:text-white">
+  <div
+    class="flex flex-col bg-white dark:bg-dark-blue shadow-lg rounded-md overflow-hidden text-very-dark-blue dark:text-white"
+  >
     <img :src="flagUrl" :alt="name + 'flag'" class="w-full aspect-4/3" />
     <div class="px-5 pt-6 pb-9">
       <h2 class="font-bold text-lg pb-3">{{ name }}</h2>
 
       <div class="flex gap-1 text-sm pb-1">
         <h3 class="font-semibold">Population:</h3>
-        <span>{{ population }}</span>
+        <span>{{ populationWithSeperator }}</span>
       </div>
       <div class="flex gap-1 text-sm pb-1">
         <h3 class="font-semibold">Region:</h3>
@@ -21,6 +23,8 @@
 </template>
 
 <script setup>
+import { computed } from "vue"
+
 const props = defineProps({
   flagUrl: String,
   name: String,
@@ -28,4 +32,8 @@ const props = defineProps({
   region: String,
   capital: String,
 })
+
+const populationWithSeperator = computed(() =>
+  props.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+)
 </script>

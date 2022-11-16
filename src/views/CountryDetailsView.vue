@@ -6,20 +6,19 @@
     >
       Back
     </button>
-    <div class="flex flex-col gap-10 justify-between tbl-lg:flex-row tbl-lg:items-center text-very-very-dark-blue dark:text-white">
-      <div class="mx-auto max-w-md tbl-lg:mx-0  tbl-lg:w-6/12 tbl-lg:max-w-xl">
-        <img
-          class="w-full aspect-4/3 "
-          :src="country.flag"
-          alt=""
-        />
+    <div
+      class="flex flex-col gap-10 justify-around tbl-lg:flex-row tbl-lg:items-center text-very-very-dark-blue dark:text-white"
+    >
+      <div class="mx-auto max-w-md tbl-lg:mx-0 tbl-lg:w-7/12 tbl-lg:max-w-2xl">
+        <img class="w-full aspect-4/3" :src="country.flag" alt="" />
       </div>
       <div>
-        <h1 class="text-xl tbl-md:text-2xl font-bold mb-6">{{ country.name }}</h1>
+        <h1 class="text-xl tbl-md:text-2xl font-bold mb-6">
+          {{ country.name }}
+        </h1>
 
         <div class="flex flex-col tbl-lg:flex-row dsk:text-lg justify-between">
           <div>
-
             <div
               v-for="detail in stringTypeDetails"
               :key="detail.label"
@@ -31,7 +30,6 @@
           </div>
           <div class="h-10"></div>
           <div>
-
             <div
               v-for="detail in arrayTypeDetails"
               :key="detail.label"
@@ -83,7 +81,7 @@ const stringTypeDetails = computed(() => [
   },
   {
     label: "Population",
-    value: country.value.population,
+    value: populationWithSeperator.value,
   },
   {
     label: "Region",
@@ -121,6 +119,10 @@ const topLevelDomain = computed(() => {
 const currencies = computed(() => country.value.currencies?.map((c) => c.name))
 
 const languages = computed(() => country.value.languages?.map((l) => l.name))
+
+const populationWithSeperator = computed(() =>
+  country.value.population?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+)
 
 const fetchCountry = async (name) => {
   console.log("name in fetchCountry:", name)

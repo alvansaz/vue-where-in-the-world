@@ -1,47 +1,49 @@
 <template>
-  <div>
-    <div
-      class="bg-white dark:bg-dark-blue mx-auto shadow-md flex items-center py-4 px-5 mb-12 rounded-md gap-5 w-11/12"
-    >
-      <span class="material-symbols-outlined text-dark-gray dark:text-white">
-        search
-      </span>
-      <input
-        class="outline-none w-full dark:bg-dark-blue dark:text-white"
-        v-model="searchQuery"
-        type="text"
-        placeholder="Search for a country..."
-      />
-    </div>
-
-    <div class="mx-5 tbl-md:mx-10 relative text-very-very-dark-blue dark:text-white">
+  <div class="px-5 tbl-sm:px-10 tbl-md:px-14">
+    <div class="flex flex-col tbl-sm:flex-row tbl-sm:justify-between gap-10">
       <div
-        class="cursor-pointer flex items-center justify-between py-3 px-6 bg-white dark:bg-dark-blue w-56 rounded-sm shadow-md"
-        @click="showDropDown = !showDropDown"
+        class="bg-white dark:bg-dark-blue mx-auto tbl-sm:mx-0 shadow-md flex items-center py-4 px-5 rounded-md gap-5 w-full max-w-md"
       >
-        <span>{{
-          filterRegion === "All" ? "Filter by region" : filterRegion
-        }}</span
-        ><span class="material-symbols-outlined"> expand_more </span>
+        <span class="material-symbols-outlined text-dark-gray dark:text-white">
+          search
+        </span>
+        <input
+          class="outline-none w-full dark:bg-dark-blue dark:text-white"
+          v-model="searchQuery"
+          type="text"
+          placeholder="Search for a country..."
+        />
       </div>
-      <ul
-        class="py-3 flex flex-col gap-1 absolute top-14 bg-white dark:bg-dark-blue w-56 rounded-sm shadow-md"
-        :class="showDropDown ? 'block' : 'hidden'"
-      >
-        <li
-          class="cursor-pointer px-6 hover:bg-gray-200"
-          v-for="region in regions"
-          :key="region"
-          @click="changeRegion(region)"
+
+      <div class="relative text-very-very-dark-blue dark:text-white">
+        <div
+          class="cursor-pointer flex items-center justify-between py-3 px-6 bg-white dark:bg-dark-blue w-56 rounded-sm shadow-md"
+          @click="showDropDown = !showDropDown"
         >
-          {{ region }}
-        </li>
-      </ul>
+          <span>{{
+            filterRegion === "All" ? "Filter by region" : filterRegion
+          }}</span
+          ><span class="material-symbols-outlined"> expand_more </span>
+        </div>
+        <ul
+          class="py-3 flex flex-col gap-1 absolute top-14 bg-white dark:bg-dark-blue w-56 rounded-sm shadow-md"
+          :class="showDropDown ? 'block' : 'hidden'"
+        >
+          <li
+            class="cursor-pointer px-6 hover:bg-gray-200"
+            v-for="region in regions"
+            :key="region"
+            @click="changeRegion(region)"
+          >
+            {{ region }}
+          </li>
+        </ul>
+      </div>
     </div>
 
-    <div class="flex flex-wrap gap-8 pt-10 px-5 tbl-md:px-10">
+    <div class="flex flex-wrap gap-8 pt-10">
       <RouterLink
-        class="w-9/12 max-w-xs mx-auto"
+        class="w-9/12 max-w-vsm mx-auto"
         v-for="country in filteredCountries"
         :key="country.name"
         :to="{ name: 'country', params: { name: country.name } }"
