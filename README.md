@@ -4,7 +4,7 @@ This is a simple demo of REST COUNTRIES API using Vue.js 3 and Tailwind CSS.
 
 ## Live Demo
 
-You can see the live demo at (render)[https://vue-where-in-the-world.onrender.com/]
+You can see the live demo at [render](https://vue-where-in-the-world.onrender.com/)
 
 ## Project Setup
 
